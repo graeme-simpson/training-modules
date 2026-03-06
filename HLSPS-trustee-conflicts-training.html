@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haseltine Lake Staff Pension Scheme | Trustee Training: Conflicts of Interest</title>
+<style>
+  :root {
+    --navy: #004224;
+    --gold: #c4a34d;
+    --gold-light: #e8d5a3;
+    --cream: #f7f7f5;
+    --mid: #3a3a3a;
+    --light-border: #d6d6d0;
+    --success: #004224;
+    --danger: #8b1a1a;
+    --warning: #8b5a00;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Helvetica, Arial, sans-serif;
+    background: var(--cream);
+    color: #1a1a1a;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    color: white;
+    padding: 22px 40px 18px;
+    border-bottom: 4px solid var(--gold);
+  }
+  .site-header .scheme-name {
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: rgba(196,163,77,0.85);
+    margin-bottom: 4px;
+  }
+  .site-header h1 {
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .site-header p {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.65);
+    margin-top: 4px;
+  }
+
+  /* ── PROGRESS BAR ── */
+  #progress-wrap {
+    background: #e8e8e4;
+    height: 6px;
+  }
+  #progress-bar {
+    height: 6px;
+    background: var(--gold);
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+
+  /* ── SCREENS ── */
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  /* ── INTRO ── */
+  #screen-intro {
+    max-width: 760px;
+    margin: 50px auto;
+    padding: 0 24px;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+  #screen-intro h2 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 18px;
+    color: var(--navy);
+  }
+  .intro-body {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--mid);
+    margin-bottom: 28px;
+  }
+  .reg-box {
+    background: white;
+    border: 1px solid var(--light-border);
+    border-left: 4px solid var(--gold);
+    padding: 20px 24px;
+    border-radius: 4px;
+    margin-bottom: 28px;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--mid);
+  }
+  .reg-box strong { color: var(--navy); }
+  .section-list {
+    list-style: none;
+    margin-bottom: 32px;
+  }
+  .section-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--light-border);
+    font-size: 0.95rem;
+    color: var(--mid);
+  }
+  .section-list li .num {
+    background: var(--navy);
+    color: white;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── NAME FORM ── */
+  .name-form {
+    background: white;
+    border: 1px solid var(--light-border);
+    border-radius: 6px;
+    padding: 28px;
+    margin-bottom: 28px;
+  }
+  .name-form label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .name-form input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--light-border);
+    border-radius: 4px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    color: var(--navy);
+    background: var(--cream);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .name-form input:focus { border-color: var(--gold); }
+  .name-form .hint {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--navy);
+    color: white;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    text-decoration: none;
+  }
+  .btn:hover { background: #003a1e; transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
+  .btn-gold { background: var(--gold); color: var(--navy); }
+  .btn-gold:hover { background: #b8953e; }
+  .btn-outline {
+    background: transparent;
+    border: 2px solid var(--navy);
+    color: var(--navy);
+  }
+  .btn-outline:hover { background: var(--navy); color: white; }
+
+  /* ── SECTION INTRO ── */
+  #screen-section {
+    max-width: 760px;
+    margin: 50px auto;
+    padding: 0 24px;
+  }
+  .section-card {
+    background: var(--navy);
+    color: white;
+    border-radius: 8px;
+    padding: 40px 44px;
+    margin-bottom: 28px;
+  }
+  .section-card .section-num {
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .section-card h2 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.9rem;
+    font-weight: 900;
+    margin-bottom: 14px;
+  }
+  .section-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #c8d0e0;
+  }
+  .briefing-box {
+    background: white;
+    border: 1px solid var(--light-border);
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--mid);
+  }
+  .briefing-box h3 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.1rem;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  /* ── QUESTION SCREEN ── */
+  #screen-question {
+    max-width: 760px;
+    margin: 40px auto;
+    padding: 0 24px;
+  }
+  .q-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  .q-section-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .q-counter {
+    font-size: 0.82rem;
+    color: var(--mid);
+  }
+  .q-card {
+    background: white;
+    border: 1px solid var(--light-border);
+    border-radius: 8px;
+    padding: 32px 36px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px rgba(26,39,68,0.06);
+  }
+  .scenario-label {
+    display: inline-block;
+    font-size: 0.73rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--warning);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .q-scenario {
+    background: #f0f4f1;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 4px 4px 0;
+    padding: 16px 20px;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--mid);
+    margin-bottom: 22px;
+    font-style: italic;
+  }
+  .q-text {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--navy);
+    margin-bottom: 28px;
+  }
+  .answer-buttons {
+    display: flex;
+    gap: 16px;
+  }
+  .answer-btn {
+    flex: 1;
+    padding: 16px 20px;
+    border-radius: 6px;
+    border: 2px solid var(--light-border);
+    background: white;
+    cursor: pointer;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .answer-btn:hover { border-color: var(--navy); background: #edf2ee; }
+  .answer-btn.true-btn:hover { border-color: var(--success); background: #e8f2eb; }
+  .answer-btn.false-btn:hover { border-color: var(--danger); background: #f2e8e8; }
+  .answer-btn .emoji { font-size: 1.3rem; }
+
+  /* ── FEEDBACK ── */
+  .feedback-overlay {
+    display: none;
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin-top: 16px;
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+  .feedback-overlay.correct {
+    display: block;
+    background: #e8f2eb;
+    border: 1px solid #8ab89a;
+    color: var(--success);
+  }
+  .feedback-overlay.incorrect {
+    display: block;
+    background: #f5eaea;
+    border: 1px solid #d4aaaa;
+    color: var(--danger);
+  }
+  .feedback-overlay .fb-title {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .feedback-overlay .fb-explain {
+    color: var(--mid);
+    font-size: 0.9rem;
+  }
+  #next-btn-wrap {
+    margin-top: 20px;
+    display: none;
+  }
+
+  /* ── RESULTS ── */
+  #screen-results {
+    max-width: 760px;
+    margin: 50px auto;
+    padding: 0 24px;
+  }
+  .results-header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .score-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 6px solid var(--gold);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    background: white;
+  }
+  .score-circle .score-num {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .score-circle .score-label {
+    font-size: 0.8rem;
+    color: var(--mid);
+  }
+  .results-header h2 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .results-header p { font-size: 0.95rem; color: var(--mid); }
+  .pass-banner {
+    background: var(--success);
+    color: white;
+    text-align: center;
+    padding: 16px;
+    border-radius: 6px;
+    margin-bottom: 28px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+  .fail-banner {
+    background: var(--danger);
+    color: white;
+    text-align: center;
+    padding: 16px;
+    border-radius: 6px;
+    margin-bottom: 28px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+  .results-breakdown {
+    background: white;
+    border: 1px solid var(--light-border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 28px;
+  }
+  .results-breakdown table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  .results-breakdown th {
+    background: var(--navy);
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .results-breakdown td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--light-border);
+    vertical-align: top;
+    line-height: 1.5;
+    color: var(--mid);
+  }
+  .results-breakdown tr:last-child td { border-bottom: none; }
+  .tick { color: var(--success); font-weight: 700; }
+  .cross { color: var(--danger); font-weight: 700; }
+  .result-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  /* ── CERTIFICATE ── */
+  #screen-cert {
+    max-width: 860px;
+    margin: 40px auto;
+    padding: 0 24px;
+  }
+  .cert-actions {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  #cert-paper {
+    background: white;
+    border: 2px solid var(--light-border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .cert-outer-border {
+    border: 12px solid var(--navy);
+    margin: 20px;
+    padding: 40px;
+    position: relative;
+  }
+  .cert-inner-border {
+    border: 2px solid var(--gold);
+    padding: 36px 44px;
+    position: relative;
+  }
+  .cert-corner {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-color: var(--gold);
+    border-style: solid;
+  }
+  .cert-corner.tl { top: -2px; left: -2px; border-width: 3px 0 0 3px; }
+  .cert-corner.tr { top: -2px; right: -2px; border-width: 3px 3px 0 0; }
+  .cert-corner.bl { bottom: -2px; left: -2px; border-width: 0 0 3px 3px; }
+  .cert-corner.br { bottom: -2px; right: -2px; border-width: 0 3px 3px 0; }
+  .cert-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--gold-light);
+    padding-bottom: 24px;
+  }
+  .cert-header .cert-logo { font-size: 2.5rem; margin-bottom: 8px; }
+  .cert-header .cert-issuer {
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mid);
+    font-weight: 600;
+  }
+  .cert-header .cert-type {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 0.95rem;
+    color: var(--gold);
+    font-style: italic;
+    margin-top: 4px;
+  }
+  .cert-body { text-align: center; }
+  .cert-body .cert-presents {
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 10px;
+  }
+  .cert-body .cert-name {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--navy);
+    border-bottom: 2px solid var(--gold);
+    display: inline-block;
+    padding-bottom: 6px;
+    margin-bottom: 18px;
+    min-width: 280px;
+  }
+  .cert-body .cert-desc {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--mid);
+    max-width: 480px;
+    margin: 0 auto 20px;
+  }
+  .cert-body .cert-module {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+    background: #f0f4f1;
+    border: 1px solid var(--gold-light);
+    padding: 10px 24px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  .cert-score-line {
+    font-size: 0.88rem;
+    color: var(--mid);
+    margin-bottom: 30px;
+  }
+  .cert-footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    border-top: 1px solid var(--gold-light);
+    padding-top: 22px;
+    margin-top: 10px;
+  }
+  .cert-sig-block { text-align: left; }
+  .cert-sig-name {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--navy);
+    border-bottom: 1px solid var(--navy);
+    padding-bottom: 2px;
+    margin-bottom: 5px;
+    min-width: 180px;
+  }
+  .cert-sig-title {
+    font-size: 0.75rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+  .cert-date-block { text-align: right; }
+  .cert-date-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 4px;
+  }
+  .cert-date-val {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.0rem;
+    color: var(--navy);
+    font-weight: 700;
+  }
+  .cert-ref {
+    font-size: 0.72rem;
+    color: #aaa;
+    text-align: center;
+    margin-top: 16px;
+  }
+  .cert-tpr-note {
+    font-size: 0.8rem;
+    color: var(--mid);
+    text-align: center;
+    margin-top: 14px;
+    font-style: italic;
+    border-top: 1px solid var(--light-border);
+    padding-top: 12px;
+  }
+
+  @media print {
+    .cert-actions, .site-header, #progress-wrap { display: none !important; }
+    #screen-cert { margin: 0; padding: 0; max-width: 100%; }
+    #cert-paper { border: none; }
+  }
+  @media (max-width: 600px) {
+    .site-header { padding: 18px 20px; }
+    .answer-buttons { flex-direction: column; }
+    .cert-outer-border { margin: 10px; padding: 20px; }
+    .cert-inner-border { padding: 20px; }
+    .cert-footer { flex-direction: column; gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="site-header">
+  <div class="scheme-name">Haseltine Lake Staff Pension Scheme</div>
+  <h1>Trustee Knowledge &amp; Understanding</h1>
+  <p>Conflicts of Interest — Trustee Training Module</p>
+</div>
+<div id="progress-wrap"><div id="progress-bar"></div></div>
+
+<!-- ══════════════ INTRO SCREEN ══════════════ -->
+<div id="screen-intro" class="screen active">
+  <div class="badge">Haseltine Lake Staff Pension Scheme</div>
+  <h2>Conflicts of Interest:<br>What Every Trustee Must Know</h2>
+  <p class="intro-body">This module forms part of your formal trustee knowledge and understanding (TKU) programme, as required by The Pensions Act 2004 and the Pensions Regulator's <em>General Code of Practice</em>. Completing it will help you identify, disclose, and manage conflicts of interest in your role as a defined benefit pension scheme trustee.</p>
+
+  <div class="reg-box">
+    <strong>Regulatory basis:</strong> Section 247 of the Pensions Act 2004 requires trustees to be conversant with the scheme's trust deed and rules, Statement of Investment Principles, and other key documents. The Pensions Regulator's General Code (in force February 2024) sets out expectations for an Effective System of Governance (ESOG) that includes documented procedures for managing conflicts of interest. Trustees have a general law fiduciary duty to act in the best interests of beneficiaries, free from the influence of personal or third-party interests.
+  </div>
+
+  <ul class="section-list">
+    <li><span class="num">1</span><span><strong>What is a conflict of interest?</strong> — The legal definition and why it matters in a pension context</span></li>
+    <li><span class="num">2</span><span><strong>Types of conflict</strong> — Personal, financial, and institutional conflicts in practice</span></li>
+    <li><span class="num">3</span><span><strong>Identifying conflicts</strong> — How and when to spot a conflict before it becomes a problem</span></li>
+    <li><span class="num">4</span><span><strong>Disclosure obligations</strong> — What you must disclose, to whom, and when</span></li>
+    <li><span class="num">5</span><span><strong>Managing and resolving conflicts</strong> — Recusal, independent advice, and other tools</span></li>
+    <li><span class="num">6</span><span><strong>Consequences of failure</strong> — Regulatory, legal, and reputational risk</span></li>
+  </ul>
+
+  <div class="name-form">
+    <label for="trustee-name">Your full name (for the certificate)</label>
+    <input type="text" id="trustee-name" placeholder="e.g. Jane Smith" autocomplete="name">
+    <p class="hint">This will appear on your completion certificate. Please enter your name as you wish it to appear.</p>
+  </div>
+
+  <button class="btn btn-gold" onclick="startTraining()">Begin Training ›</button>
+</div>
+
+<!-- ══════════════ SECTION INTRO SCREEN ══════════════ -->
+<div id="screen-section" class="screen">
+  <div class="section-card">
+    <div class="section-num" id="sec-num-label">Section 1 of 6</div>
+    <h2 id="sec-title">—</h2>
+    <p id="sec-desc">—</p>
+  </div>
+  <div class="briefing-box" id="sec-briefing"></div>
+  <button class="btn" onclick="startSection()">Start Questions ›</button>
+</div>
+
+<!-- ══════════════ QUESTION SCREEN ══════════════ -->
+<div id="screen-question" class="screen">
+  <div class="q-meta">
+    <span class="q-section-label" id="q-section-name">—</span>
+    <span class="q-counter" id="q-counter">Question 1 of 25</span>
+  </div>
+  <div class="q-card">
+    <span class="scenario-label" id="scenario-label" style="display:none">📋 Scenario</span>
+    <div class="q-scenario" id="q-scenario" style="display:none"></div>
+    <div class="q-text" id="q-text">—</div>
+    <div class="answer-buttons">
+      <button class="answer-btn true-btn" onclick="answer(true)"><span class="emoji">✔</span> True</button>
+      <button class="answer-btn false-btn" onclick="answer(false)"><span class="emoji">✘</span> False</button>
+    </div>
+    <div class="feedback-overlay" id="q-feedback"></div>
+  </div>
+  <div id="next-btn-wrap">
+    <button class="btn" id="next-btn" onclick="nextQuestion()">Next Question ›</button>
+  </div>
+</div>
+
+<!-- ══════════════ RESULTS SCREEN ══════════════ -->
+<div id="screen-results" class="screen">
+  <div class="results-header">
+    <div class="score-circle">
+      <span class="score-num" id="score-pct">—</span>
+      <span class="score-label">score</span>
+    </div>
+    <h2 id="results-headline">Training Complete</h2>
+    <p id="results-subline"></p>
+  </div>
+  <div id="pass-fail-banner"></div>
+  <div class="results-breakdown">
+    <table>
+      <thead><tr><th>Section</th><th>Score</th></tr></thead>
+      <tbody id="results-table-body"></tbody>
+    </table>
+  </div>
+  <div id="incorrect-review"></div>
+  <div class="result-actions">
+    <button class="btn btn-gold" id="cert-btn" onclick="showCert()" style="display:none">View Certificate ›</button>
+    <button class="btn btn-outline" onclick="retryTraining()">Retake Module</button>
+  </div>
+</div>
+
+<!-- ══════════════ CERTIFICATE SCREEN ══════════════ -->
+<div id="screen-cert" class="screen">
+  <div class="cert-actions">
+    <button class="btn btn-gold" onclick="printCert()">🖨 Print / Save as PDF</button>
+    <button class="btn btn-outline" onclick="showScreen('screen-results')">← Back to Results</button>
+  </div>
+  <div id="cert-paper">
+    <div class="cert-outer-border">
+      <div class="cert-inner-border">
+        <div class="cert-corner tl"></div><div class="cert-corner tr"></div>
+        <div class="cert-corner bl"></div><div class="cert-corner br"></div>
+        <div class="cert-header">
+          <div class="cert-logo">⚖️</div>
+          <div class="cert-issuer">Haseltine Lake Staff Pension Scheme</div>
+          <div class="cert-type">Trustee Knowledge &amp; Understanding Programme — Certificate of Completion</div>
+        </div>
+        <div class="cert-body">
+          <div class="cert-presents">This is to certify that</div>
+          <div class="cert-name" id="cert-name-display">—</div>
+          <div class="cert-desc">has successfully completed the required trustee training module on</div>
+          <div class="cert-module">Conflicts of Interest in Defined Benefit Occupational Pension Schemes</div>
+          <div class="cert-score-line" id="cert-score-line">—</div>
+          <div class="cert-desc" style="font-size:0.85rem;">This training addresses the trustee knowledge and understanding requirements under <strong>section 247 of the Pensions Act 2004</strong> and forms part of the scheme's Effective System of Governance (ESOG) under The Pensions Regulator's <em>General Code of Practice</em> (February 2024).</div>
+        </div>
+        <div class="cert-footer">
+          <div class="cert-sig-block">
+            <div class="cert-sig-name">TKU Training Module</div>
+            <div class="cert-sig-title">Authorised Training Record</div>
+          </div>
+          <div class="cert-date-block">
+            <div class="cert-date-label">Date of completion</div>
+            <div class="cert-date-val" id="cert-date">—</div>
+          </div>
+        </div>
+        <div class="cert-ref" id="cert-ref">—</div>
+      </div>
+    </div>
+    <div class="cert-tpr-note">This certificate should be retained as part of the trustee's training record and may be produced to The Pensions Regulator on request to evidence compliance with the TKU requirements and ESOG obligations.</div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════
+//  DATA
+// ══════════════════════════════════════════════
+const sections = [
+  {
+    title: "What is a Conflict of Interest?",
+    desc: "Understanding the legal definition and why conflicts matter in the pensions context.",
+    briefing: `<h3>The legal foundation</h3>
+<p>A <strong>conflict of interest</strong> arises when a trustee's personal interests, or the interests of a third party to whom a trustee owes a duty, could influence — or appear to influence — the trustee's decision-making in their capacity as a trustee.</p>
+<p style="margin-top:12px">As a trustee, your <strong>primary duty is to act in the best interests of the scheme's beneficiaries</strong> — both current pensioners and deferred members. This is your fiduciary duty under trust law, reinforced by the Pensions Act 2004.</p>
+<p style="margin-top:12px">The Pensions Regulator's <strong>General Code of Practice</strong> (in force February 2024) requires trustees to have a documented <strong>conflicts of interest policy</strong> as part of the scheme's Effective System of Governance (ESOG). The key principle is that conflicts must be <em>identified, disclosed, and managed</em> — not simply avoided or ignored.</p>
+<p style="margin-top:12px"><strong>A conflict does not mean wrongdoing.</strong> Having a conflict is not in itself a breach of duty. What matters is what you do about it.</p>`
+  },
+  {
+    title: "Types of Conflict",
+    desc: "Personal, financial, and institutional conflicts — and how they arise for DB scheme trustees.",
+    briefing: `<h3>Three main types of conflict</h3>
+<p><strong>1. Personal conflicts</strong> arise from your own financial or personal interests. For example: you are an active member of the scheme and a trustee vote on benefit changes would affect your own pension.</p>
+<p style="margin-top:10px"><strong>2. Conflicting duties (dual-hat conflicts)</strong> arise when you owe duties to two different principals. For example: you are appointed as an employer-nominated trustee and must participate in a decision about whether the employer's recovery plan offer is acceptable. Your duty to the employer may conflict with your duty to members.</p>
+<p style="margin-top:10px"><strong>3. Third-party or institutional conflicts</strong> arise from relationships with advisers, service providers, or other connected parties. For example: a trustee is a partner in a law firm that has tendered for the scheme's legal work.`
+  },
+  {
+    title: "Identifying Conflicts",
+    desc: "Practical guidance on spotting conflicts before decisions are made.",
+    briefing: `<h3>When to look for conflicts</h3>
+<p>Good governance requires <strong>proactive identification</strong> of conflicts — before a meeting, not during it. The General Code expects trustees to maintain a <strong>conflicts register</strong> that is reviewed regularly and updated as circumstances change.</p>
+<p style="margin-top:10px">Conflicts may arise at the start of a trustee's appointment (e.g. because of employment status or professional relationships), or may arise later during tenure (e.g. when a spouse is appointed to a role with a scheme adviser). You must <strong>disclose potential conflicts promptly</strong> when they arise — not just at the next scheduled review.</p>
+<p style="margin-top:10px">Ask yourself before every meeting: <em>"Do I, or does any close associate of mine, have any interest in the outcome of any matter on today's agenda that is different from the interest of members generally?"</em></p>`
+  },
+  {
+    title: "Disclosure Obligations",
+    desc: "What you must disclose, to whom, and when — including the conflicts register.",
+    briefing: `<h3>The duty to disclose</h3>
+<p>Under general trust law and the General Code, trustees must <strong>disclose actual or potential conflicts promptly</strong> to the chair of trustees (or, where the chair has the conflict, to the full trustee board). Disclosure should be made:</p>
+<ul style="margin:10px 0 10px 20px; line-height:1.8">
+  <li>at the outset of appointment;</li>
+  <li>as soon as a new conflict arises; and</li>
+  <li>at the start of any meeting where a conflicted matter is on the agenda.</li>
+</ul>
+<p>The scheme's <strong>conflicts of interest policy</strong> should specify the disclosure process, who maintains the conflicts register, and how conflicts are recorded. A decision made without proper disclosure of a material conflict may be <strong>challengeable in court</strong> and could lead to personal liability for the trustee.</p>`
+  },
+  {
+    title: "Managing and Resolving Conflicts",
+    desc: "Tools for managing conflicts: recusal, independent advice, and structural solutions.",
+    briefing: `<h3>Options once a conflict is identified</h3>
+<p>Disclosure alone is not enough. Once identified, the trustee board (collectively) must decide how to manage the conflict. Options include:</p>
+<ul style="margin:10px 0 10px 20px; line-height:1.8">
+  <li><strong>Recusal:</strong> the conflicted trustee withdraws from the relevant part of the meeting and does not vote. This is the most common approach for acute conflicts.</li>
+  <li><strong>Independent advice:</strong> an independent adviser is appointed to give an opinion without the conflict, enabling the board to make an informed decision.</li>
+  <li><strong>Transparent management:</strong> where the conflict is minor, the board may proceed with full disclosure noted in the minutes, with the conflicted trustee participating but with appropriate safeguards.</li>
+  <li><strong>Resignation:</strong> in extreme cases, where a trustee's position is structurally incompatible with their fiduciary duty, resignation may be the only appropriate option.</li>
+</ul>
+<p>Whatever approach is taken, it must be <strong>documented in the minutes</strong> of the relevant meeting.</p>`
+  },
+  {
+    title: "Consequences of Failure",
+    desc: "Regulatory, legal, and reputational risk for trustees who fail to manage conflicts.",
+    briefing: `<h3>What happens when conflicts are not managed?</h3>
+<p>The consequences of failing to identify, disclose, or manage conflicts can be serious. They include:</p>
+<ul style="margin:10px 0 10px 20px; line-height:1.8">
+  <li><strong>Civil liability:</strong> a trustee in breach of fiduciary duty may be required to compensate the scheme for any resulting loss, and may be disqualified from acting as a trustee.</li>
+  <li><strong>Regulatory action by TPR:</strong> The Pensions Regulator has powers under the Pensions Act 2004 to issue improvement notices, remove trustees, and — in serious cases — take civil penalty action.</li>
+  <li><strong>Challenges to decisions:</strong> decisions taken where conflicts were not disclosed may be set aside by a court, causing significant cost and disruption.</li>
+  <li><strong>Reputational damage:</strong> poor governance of conflicts erodes member confidence and may attract press scrutiny.</li>
+</ul>
+<p>The General Code's ESOG requirements mean that <strong>evidence of your conflicts management</strong> — including this training record — should be available for inspection.</p>`
+  }
+];
+
+const questions = [
+  // Section 1 — What is a conflict?
+  { sec: 0, scenario: null,
+    q: "A trustee's primary legal duty is to act in the best financial interests of the scheme's beneficiaries.",
+    answer: true,
+    explain: "Correct. Trustees owe a fiduciary duty to act in the best interests of the beneficiaries — both current pensioners and deferred members. This is the foundational principle of trust law, reinforced by the Pensions Act 2004." },
+  { sec: 0, scenario: null,
+    q: "Having a conflict of interest automatically means a trustee has done something wrong.",
+    answer: false,
+    explain: "False. The existence of a conflict is not itself a breach of duty. Conflicts arise naturally from trustees' professional and personal lives. What matters is that the conflict is identified, disclosed, and appropriately managed." },
+  { sec: 0, scenario: null,
+    q: "The Pensions Regulator's General Code of Practice, which came into force in February 2024, requires trustees to have a documented conflicts of interest policy as part of their Effective System of Governance (ESOG).",
+    answer: true,
+    explain: "True. The General Code consolidates earlier codes of practice and introduces the ESOG framework. A documented conflicts policy is a specific requirement." },
+  { sec: 0, scenario: "Trustee A is employed by the scheme's principal employer and sits on the employer's investment committee. The trustees are about to vote on whether to accept the employer's revised deficit recovery plan.",
+    q: "This situation is unlikely to involve any conflict of interest for Trustee A.",
+    answer: false,
+    explain: "False. Trustee A owes duties both to the employer (as an employee) and to the members (as a trustee). Voting on whether to accept the employer's recovery plan is a paradigm example of a conflict of interest that must be disclosed and managed." },
+  { sec: 0, scenario: null,
+    q: "A conflict of interest can arise even if the trustee has no intention of acting improperly.",
+    answer: true,
+    explain: "True. A conflict arises from the structure of interests and relationships, not from motive. Even a trustee of impeccable integrity may have a conflict that requires disclosure and management." },
+
+  // Section 2 — Types of conflict
+  { sec: 1, scenario: null,
+    q: "An employer-nominated trustee participating in a decision about scheme benefit changes that would reduce the employer's contributions is an example of a 'dual-hat' or conflicting duties conflict.",
+    answer: true,
+    explain: "True. This is a classic dual-hat conflict: the trustee owes a duty to act in members' interests but also has a relationship with the employer that may influence — or appear to influence — their decision." },
+  { sec: 1, scenario: "Trustee B is an active member of the scheme. The trustee board is considering whether to change the scheme's accrual rate in a way that would reduce future benefits.",
+    q: "Trustee B has a personal conflict because the proposed change would directly affect their own future pension.",
+    answer: true,
+    explain: "True. This is a personal conflict — Trustee B has a direct financial interest in the outcome of the decision, different from the general interest of all members. It should be disclosed." },
+  { sec: 1, scenario: null,
+    q: "A trustee who is a partner at a professional firm that has no current or proposed engagement with the scheme cannot have a professional conflict of interest.",
+    answer: false,
+    explain: "False. A potential conflict can arise if the firm is likely to tender for scheme work, or if professional relationships could influence the trustee's judgement. Conflicts can be potential as well as actual." },
+  { sec: 1, scenario: null,
+    q: "An independent trustee who has no connection to the employer or members is completely free of any possible conflict of interest.",
+    answer: false,
+    explain: "False. Independent trustees can still have conflicts — for example, if their firm has been appointed by the employer, or if they have a professional or personal relationship with a scheme adviser. Independence reduces the risk of some conflicts but does not eliminate it." },
+  { sec: 1, scenario: "Trustee C's spouse has recently been appointed as a partner at the firm that acts as the scheme's investment consultant.",
+    q: "This family connection could give rise to a conflict of interest that Trustee C should disclose.",
+    answer: true,
+    explain: "True. A close family member's professional connection to a scheme service provider is a recognised source of conflict. Trustee C should disclose this promptly and update the conflicts register." },
+
+  // Section 3 — Identifying conflicts
+  { sec: 2, scenario: null,
+    q: "Trustees are only required to consider conflicts of interest when a specific issue arises at a board meeting.",
+    answer: false,
+    explain: "False. Good governance requires proactive identification of conflicts — including at appointment and whenever circumstances change. The General Code expects conflicts to be identified before meetings, not reactively during them." },
+  { sec: 2, scenario: null,
+    q: "A conflicts register is a live document that should be reviewed and updated regularly, not just at trustee appointments.",
+    answer: true,
+    explain: "True. The conflicts register should be maintained as a live document, reviewed at each trustee board meeting and updated whenever a trustee's circumstances change." },
+  { sec: 2, scenario: "Before a trustee board meeting, the agenda includes a decision on whether to switch the scheme's investment manager. Trustee D realises that his brother-in-law is a director of one of the shortlisted managers.",
+    q: "Trustee D should disclose this connection to the other trustees before the meeting proceeds to that agenda item.",
+    answer: true,
+    explain: "True. This is a potential conflict arising from a family connection to a party with a direct financial interest in the outcome. Disclosure before the decision is made is the correct approach." },
+  { sec: 2, scenario: null,
+    q: "A trustee who previously worked for the scheme's sponsoring employer but left 10 years ago is highly unlikely to have any residual conflict of interest.",
+    answer: false,
+    explain: "Caution is needed here. While the passage of time reduces risk, residual loyalties, ongoing professional relationships, or financial interests (such as unvested pension rights) may still give rise to a conflict. Each case must be considered on its own facts." },
+  { sec: 2, scenario: null,
+    q: "A trustee should ask themselves, before each meeting: 'Do I have any interest in the outcome of any agenda item that differs from the interests of members generally?'",
+    answer: true,
+    explain: "True. This is the correct pre-meeting self-assessment recommended by the General Code. Trustees should apply this test systematically before every board meeting." },
+
+  // Section 4 — Disclosure
+  { sec: 3, scenario: null,
+    q: "Disclosure of a conflict of interest should normally be made to the chair of trustees (or, where the chair is conflicted, to the full board).",
+    answer: true,
+    explain: "True. This is the standard procedure under the General Code and most scheme conflicts policies. The chair is responsible for deciding how the conflict should be managed." },
+  { sec: 3, scenario: null,
+    q: "A trustee only needs to disclose conflicts that involve a direct financial benefit to themselves.",
+    answer: false,
+    explain: "False. The disclosure obligation extends to any conflict — financial or non-financial, direct or indirect, personal or professional — that could reasonably be seen as affecting the trustee's independence of judgement." },
+  { sec: 3, scenario: "Trustee E discloses at the start of a meeting that she has a potential conflict on one agenda item but says nothing further and participates fully in the vote.",
+    q: "Disclosure alone is sufficient to manage a conflict of interest.",
+    answer: false,
+    explain: "False. Disclosure is the first step, but it is not sufficient on its own. The board must then decide how to manage the conflict — for example, by requiring recusal or appointing independent advice. The decision and management approach must be recorded in the minutes." },
+  { sec: 3, scenario: null,
+    q: "A trustee's conflict disclosure, and the board's decision on how to manage it, should be documented in the minutes of the relevant meeting.",
+    answer: true,
+    explain: "True. Documentation is essential. Minutes should record that the conflict was disclosed, the nature of the conflict, and the steps taken to manage it. This creates an audit trail for regulatory purposes." },
+  { sec: 3, scenario: null,
+    q: "A trustee should make a fresh disclosure at the start of any meeting where a matter they have previously registered as a conflict arises on the agenda.",
+    answer: true,
+    explain: "True. Even where a conflict is already on the register, it is good practice to make a fresh oral disclosure at the relevant meeting so all present are aware and can confirm the management approach." },
+
+  // Section 5 — Managing conflicts
+  { sec: 4, scenario: "The trustee board is considering the scheme's actuarial valuation results and the employer's proposed recovery plan. Two of the five trustees are employees of the employer. The employer-nominated trustees have been asked to recuse themselves from the relevant vote.",
+    q: "Recusal — withdrawing from discussion and the vote — is an appropriate way to manage this conflict.",
+    answer: true,
+    explain: "True. Recusal is one of the most effective tools for managing an acute conflict, particularly where the conflicted trustee's participation could undermine the integrity of the decision. However, the board must ensure it retains a quorum of unconflicted trustees to proceed." },
+  { sec: 4, scenario: null,
+    q: "If a trustee is recused from a decision, they should leave the room (or remove themselves from the video call) during discussion of that item.",
+    answer: true,
+    explain: "True. It is not sufficient simply to abstain from voting. Best practice is for the recused trustee to withdraw from the meeting for that agenda item so they are not seen to be influencing discussion." },
+  { sec: 4, scenario: null,
+    q: "Appointing an independent adviser to advise the board on a matter where some trustees are conflicted can be a useful way of ensuring the board receives impartial input.",
+    answer: true,
+    explain: "True. Obtaining independent advice — from a lawyer, actuary, or other specialist with no connection to the conflicted parties — is a recognised tool for managing conflicts, particularly on complex financial or legal matters." },
+  { sec: 4, scenario: "A trustee has a structural, ongoing conflict that cannot practically be managed by recusal because it affects nearly every decision the board takes.",
+    q: "In such a case, resignation from the trustee board may be the only appropriate solution.",
+    answer: true,
+    explain: "True. Where a conflict is so pervasive that it cannot be managed on a decision-by-decision basis, the trustee may need to consider whether continuing to serve is compatible with their fiduciary duty. Resignation may be appropriate in extreme cases." },
+  { sec: 4, scenario: null,
+    q: "Once a trustee has managed a conflict by recusing themselves, no further record-keeping is required.",
+    answer: false,
+    explain: "False. The recusal — and the reasons for it — must be documented in the board minutes. Good governance requires a clear audit trail of how each conflict was identified and managed." },
+
+  // Section 6 — Consequences
+  { sec: 5, scenario: null,
+    q: "The Pensions Regulator has the power to remove a trustee who has persistently failed to manage conflicts of interest properly.",
+    answer: true,
+    explain: "True. Under the Pensions Act 2004, TPR can issue improvement notices, prohibit individuals from acting as trustees, and take other regulatory action where governance standards have not been met." },
+  { sec: 5, scenario: null,
+    q: "A decision made by the trustee board where a material conflict was not disclosed is at risk of being challenged or set aside.",
+    answer: true,
+    explain: "True. An undisclosed material conflict can make a trustee decision voidable. Courts have set aside trustee decisions where conflicts have tainted the decision-making process, which can cause significant cost and disruption." },
+  { sec: 5, scenario: null,
+    q: "A trustee in breach of their fiduciary duty arising from an undisclosed conflict of interest cannot be held personally liable for any resulting loss to the scheme.",
+    answer: false,
+    explain: "False. A trustee who breaches their fiduciary duty may be required personally to compensate the scheme for any resulting loss. This is one of the most serious consequences of failing to manage conflicts properly." },
+  { sec: 5, scenario: null,
+    q: "Keeping a complete record of trustee training, including certificates such as this one, is relevant to demonstrating compliance with the ESOG requirements under the General Code.",
+    answer: true,
+    explain: "True. The General Code's ESOG requires trustees to be able to demonstrate their governance arrangements, including trustee knowledge and understanding. Training records — including completion certificates — are part of this evidence base." },
+
+  // Section 1 — What is a conflict? (4 additional = 9 total)
+  { sec: 0, scenario: null,
+    q: "The test for whether a conflict of interest exists is subjective — it depends on whether the trustee themselves believes they can act impartially.",
+    answer: false,
+    explain: "False. The test is objective. A conflict exists if a reasonable, impartial observer would conclude that the trustee's personal or professional interests might affect their judgement, regardless of the trustee's own belief in their impartiality." },
+  { sec: 0, scenario: "Trustee F is a retired professional with no current employment connections to the employer or any scheme adviser. He holds a small number of shares in a FTSE 100 company that is not connected to the scheme.",
+    q: "Trustee F's share-holding in an unconnected FTSE 100 company is unlikely, in itself, to constitute a material conflict of interest in relation to scheme decisions.",
+    answer: true,
+    explain: "True. A remote or immaterial financial interest in an unconnected third party is unlikely to constitute a material conflict. Conflicts policy should focus on interests that could reasonably affect the trustee's judgement on scheme matters. However, trustees should still consider disclosure if any scheme decision could conceivably affect that holding." },
+  { sec: 0, scenario: null,
+    q: "The conflicts of interest framework in the General Code applies only to professional trustees, not to member-nominated or employer-nominated lay trustees.",
+    answer: false,
+    explain: "False. The conflicts framework applies equally to all trustees regardless of how they were appointed. Lay trustees, member-nominated trustees and employer-nominated trustees are all subject to the same fiduciary duties and disclosure obligations." },
+  { sec: 0, scenario: null,
+    q: "A trustee's fiduciary duty means they must always act in the interests of the majority of members, even if this is detrimental to a minority class of beneficiary.",
+    answer: false,
+    explain: "False. The fiduciary duty is owed to all beneficiaries — current pensioners, deferred members and future beneficiaries alike. Trustees must act evenhandedly between different classes of beneficiary and cannot simply favour the majority." },
+
+  // Section 2 — Types of conflict (4 additional = 9 total)
+  { sec: 1, scenario: "A trustee firm provides both the professional trustee service and the scheme secretarial service to the Scheme. The trustee board is reviewing its service providers and considering whether to put the secretarial service out to tender.",
+    q: "The professional trustee firm has an institutional conflict of interest in relation to the decision about tendering the secretarial service.",
+    answer: true,
+    explain: "True. The professional trustee firm has a direct financial interest in retaining the secretarial contract. This is an institutional conflict — the firm's commercial interest conflicts with its duty to act solely in members' interests when advising on or participating in that procurement decision." },
+  { sec: 1, scenario: null,
+    q: "A trustee who is also a deferred member of the scheme has a personal conflict on every decision the board takes, regardless of subject matter.",
+    answer: false,
+    explain: "False. Not every decision will give rise to a material personal conflict for a deferred member trustee. A conflict only arises where the trustee's personal interest as a member could reasonably influence their judgement on the specific matter in question. The position must be assessed decision by decision." },
+  { sec: 1, scenario: "Trustee G is a senior partner at a law firm. The scheme's legal work is handled by a different firm. However, Trustee G's firm and the scheme's law firm are in direct competition for work from the sponsoring employer.",
+    q: "This competitive relationship between the two law firms could, depending on the circumstances, give rise to a conflict that Trustee G should consider disclosing.",
+    answer: true,
+    explain: "True. Commercial rivalry between Trustee G's firm and the scheme's advisers could — in the right circumstances — affect Trustee G's objectivity in evaluating the quality of advice or in decisions about adviser appointments. It warrants consideration and, if in doubt, disclosure." },
+  { sec: 1, scenario: null,
+    q: "A conflict of interest can only arise from financial relationships — personal animosity or friendship between a trustee and a third party involved in scheme decisions cannot constitute a conflict.",
+    answer: false,
+    explain: "False. Non-financial relationships — including close personal friendships, family ties, or even personal animosity — can constitute conflicts of interest if they could reasonably affect a trustee's judgement. The scope of what constitutes a conflict is broad." },
+
+  // Section 3 — Identifying conflicts (9 additional = 14 total)
+  { sec: 2, scenario: null,
+    q: "A trustee's obligation to identify potential conflicts of interest begins on the day they are formally appointed to the board.",
+    answer: false,
+    explain: "False. The obligation arises even before appointment. A trustee should carry out a conflicts review as part of the appointment process, so that any existing conflicts can be identified and addressed before they begin participating in board decisions." },
+  { sec: 2, scenario: null,
+    q: "When reviewing the scheme's conflicts register, the trustee board should also consider whether any conflicts have arisen for advisers and service providers, not just for trustees themselves.",
+    answer: true,
+    explain: "True. Good governance extends to managing conflicts among the scheme's professional advisers. The General Code expects trustees to consider conflicts affecting those who advise the scheme, not only those affecting the trustees themselves." },
+  { sec: 2, scenario: "Trustee H has recently inherited a significant shareholding in a company that is a major counterparty to one of the scheme's investment funds.",
+    q: "Trustee H should review whether this new shareholding gives rise to a conflict and, if it does, update the conflicts register and disclose to the chair promptly.",
+    answer: true,
+    explain: "True. A material change in a trustee's personal financial circumstances — including an inheritance — may create a new conflict. The obligation to disclose is triggered when circumstances change, not merely at scheduled register reviews." },
+  { sec: 2, scenario: "The trustee board is considering a buy-in with an insurance company. One trustee, Trustee I, previously worked for that insurer's parent group, leaving five years ago.",
+    q: "Trustee I's prior employment at the insurer's parent is entirely irrelevant and does not need to be considered.",
+    answer: false,
+    explain: "False. Prior employment at a connected organisation is a recognised source of potential conflict, even after the passage of time. Trustee I should consider whether any residual loyalty, relationships or financial interests (such as deferred benefits) could affect their objectivity, and raise this with the chair for consideration." },
+  { sec: 2, scenario: null,
+    q: "A trustee who is asked to sit on a sub-committee reviewing the performance of a scheme adviser should first consider whether they have any relationship with that adviser that should be disclosed.",
+    answer: true,
+    explain: "True. Sub-committee work carries the same conflict obligations as full board decisions. A trustee reviewing an adviser's performance should be alert to any personal, professional or financial connection to that adviser that could compromise their objectivity." },
+  { sec: 2, scenario: "Two trustees on a five-person board are both employed by the sponsoring employer. The board's agenda for the next meeting includes a decision on whether to grant the employer a contribution holiday, taking advantage of the scheme's current surplus.",
+    q: "Only one of the two employer-employed trustees needs to identify and manage the conflict — the other can participate freely.",
+    answer: false,
+    explain: "False. Both trustees have the same conflict arising from their employment relationship with the employer. Each must independently identify, disclose and manage their own conflict. The fact that another trustee has the same conflict does not remove the obligation for each individual." },
+  { sec: 2, scenario: null,
+    q: "A trustee is unlikely to have a conflict of interest simply because they are also a pensioner member of the scheme in receipt of a pension.",
+    answer: false,
+    explain: "This requires careful thought. A pensioner trustee does have a personal financial interest in the scheme's solvency and the security of benefits. While this interest is broadly aligned with those of other pensioner members, specific decisions — such as those affecting the relative priority of different benefit classes — could give rise to a conflict that should be considered." },
+  { sec: 2, scenario: "Trustee J serves on the board of a charity. The trustees are considering making a charitable donation from scheme funds as part of a surplus distribution strategy.",
+    q: "Trustee J's role at a charity is not relevant to any conflict analysis, because scheme charitable donations are unlikely to benefit Trustee J's charity specifically.",
+    answer: false,
+    explain: "False. Even though it may be unlikely that Trustee J's charity would benefit, the connection is the kind of potential conflict that should be identified and disclosed. The board can then decide it is not material — but the starting point should be disclosure, not self-assessment that the conflict is unimportant." },
+  { sec: 2, scenario: null,
+    q: "If a trustee is unsure whether a particular interest or relationship amounts to a conflict of interest, the safest approach is to disclose it and let the board decide.",
+    answer: true,
+    explain: "True. Where there is genuine uncertainty, disclosure is always the safer course. The trustee board can then make a collective judgement about materiality and management. Failing to disclose a conflict that later proves to be material is far more damaging than disclosing one that turns out to be minor." },
+
+  // Section 4 — Disclosure (4 additional = 9 total)
+  { sec: 3, scenario: null,
+    q: "Where the chair of trustees has a conflict on a particular matter, the chair should manage the conflict themselves by simply abstaining from the vote, without informing the rest of the board.",
+    answer: false,
+    explain: "False. Where the chair has a conflict, it should be disclosed to the full board — not managed unilaterally by the chair. The full board must then decide how to handle the chair's conflict, potentially by asking another trustee to chair the relevant part of the meeting." },
+  { sec: 3, scenario: "Trustee K realises, halfway through a board discussion, that she has a conflict on the matter being discussed that she failed to disclose at the outset of the meeting.",
+    q: "Trustee K should immediately disclose the conflict to the board, even though the discussion is already underway.",
+    answer: true,
+    explain: "True. Late disclosure is far better than no disclosure. Trustee K should interrupt proceedings, disclose the conflict, and allow the board to decide how to proceed — including whether to revisit any part of the discussion that has already taken place." },
+  { sec: 3, scenario: null,
+    q: "A conflicts of interest policy is only required for schemes with more than 100 members.",
+    answer: false,
+    explain: "False. The General Code's ESOG requirements — including the obligation to have a documented conflicts policy — apply to all occupational pension schemes within scope of the Code, regardless of size. There is no member threshold for the conflicts policy requirement." },
+  { sec: 3, scenario: null,
+    q: "The conflicts register should record not only the existence of each conflict but also the steps taken to manage it and the outcome of the board's consideration.",
+    answer: true,
+    explain: "True. A register that merely lists conflicts without recording how they were managed has limited value as a governance document. For regulatory and legal purposes, the register should show the full picture: the conflict, when it was identified, how the board decided to manage it, and any follow-up steps." },
+
+  // Section 5 — Managing conflicts (10 additional = 15 total)
+  { sec: 4, scenario: "Three of the five trustees on a board are employed by the sponsoring employer. A decision arises that requires all employer-nominated trustees to recuse themselves. The remaining two trustees do not constitute a quorum under the scheme rules.",
+    q: "In this situation, the board can still validly proceed with the decision using only the two unconflicted trustees, provided they act in members' best interests.",
+    answer: false,
+    explain: "False. If the recusal of conflicted trustees means the board cannot form a quorum, it cannot validly make the decision. The appropriate steps may include seeking to appoint an additional independent trustee, obtaining a court order, or reviewing the scheme's quorum rules. Proceeding without a quorum risks the decision being invalid." },
+  { sec: 4, scenario: null,
+    q: "A trustee who recuses themselves from a decision is entitled to see the board's minutes of that decision after it has been made.",
+    answer: true,
+    explain: "True. Recusal relates to participation in the decision-making process, not to the trustee's ongoing rights as a board member. A recused trustee may receive the minutes of the relevant decision. However, the conflicts policy may restrict access to commercially sensitive information in some circumstances." },
+  { sec: 4, scenario: "The trustee board is considering an investment in a private equity fund. One trustee, Trustee L, is a limited partner investor in a related fund managed by the same private equity manager. He discloses the conflict. The board decides he should recuse himself from the decision. Trustee L suggests that, instead, he should be allowed to participate and provide his expertise on the manager's track record.",
+    q: "The board is entitled to decide that Trustee L's expertise is valuable enough to justify his participation despite the conflict.",
+    answer: false,
+    explain: "False. While the board has flexibility in managing conflicts, allowing a conflicted trustee to participate on the basis that their expertise outweighs the conflict is a high-risk approach that undermines the integrity of the decision. The right course is to obtain independent expert input rather than relying on the conflicted trustee, however knowledgeable they may be." },
+  { sec: 4, scenario: null,
+    q: "Where a conflict is managed by recusal, the recused trustee's name and the reason for their withdrawal should be noted in the board minutes.",
+    answer: true,
+    explain: "True. Accurate minute-taking is essential. The minutes should record who was recused, why, and at what point in the meeting. This protects the board collectively and provides the audit trail required under the ESOG." },
+  { sec: 4, scenario: "A trustee board has a standing item on its agenda to review and update the conflicts register. At the most recent meeting, a trustee mentions in passing that she has recently taken on a non-executive director role at a company that provides data services to the scheme, but the conflicts register is not updated because there is no formal resolution to do so.",
+    q: "The failure to update the conflicts register in these circumstances represents a governance gap.",
+    answer: true,
+    explain: "True. Oral disclosure at a meeting is not a substitute for updating the conflicts register. The register must be updated promptly when new conflicts are identified. The board secretary or scheme administrator should ensure that disclosures made during meetings are captured in the register and not merely noted in the meeting minutes." },
+  { sec: 4, scenario: null,
+    q: "It is acceptable for a conflicted trustee to remain in the room during a recused agenda item, provided they do not speak or vote.",
+    answer: false,
+    explain: "False. Best practice is for the conflicted trustee to leave the room entirely (or exit the video call) for the duration of the relevant discussion. Remaining present — even silently — could be seen as influencing the discussion through body language or perceived pressure, and does not adequately manage the conflict." },
+  { sec: 4, scenario: "The trustee board is considering two competing tenders for the scheme's actuarial work. Trustee M works part-time as a consultant for one of the tendering firms, a fact that is recorded on the conflicts register. The board decides to manage the conflict by allowing Trustee M to participate in discussions but not to vote.",
+    q: "This approach — participating in discussion but not voting — is always a safe and sufficient way to manage a conflict of this kind.",
+    answer: false,
+    explain: "False. For a direct commercial conflict of this nature — where a trustee has a financial relationship with one of the parties — participation in discussion as well as the vote creates a real risk that the conflicted trustee could influence the outcome. Full recusal from both the discussion and the vote would be the more appropriate approach in these circumstances." },
+  { sec: 4, scenario: null,
+    q: "A trustee's conflicts of interest policy should be reviewed at least annually and updated whenever there is a material change in the scheme's governance arrangements.",
+    answer: true,
+    explain: "True. The General Code expects the ESOG — including the conflicts policy — to be kept under regular review. Annual review is good practice, and a material change in trustee board composition, adviser arrangements or scheme strategy may warrant an earlier review." },
+  { sec: 4, scenario: "Trustee N is a member-nominated trustee who is also a trade union official. The board is considering a proposal to reduce future benefit accrual. Trustee N argues that, as a union official, she has a mandate to represent members and should not be recused.",
+    q: "Trustee N's role as a union official gives her a mandate to represent members that overrides the need to consider whether she has a conflict of interest.",
+    answer: false,
+    explain: "False. Member-nominated and union-nominated trustees owe the same fiduciary duties as other trustees. They are not delegates of the members or the union — they are trustees whose primary duty is to act in the interests of all beneficiaries. A union role may or may not give rise to a conflict, but it does not create an exemption from conflict analysis." },
+  { sec: 4, scenario: null,
+    q: "When independent advice is obtained to manage a conflict, it is good practice for the adviser appointment to be made by the unconflicted trustees rather than by the conflicted trustee.",
+    answer: true,
+    explain: "True. If the conflicted trustee were to select or instruct the independent adviser, this could undermine the independence of the advice. The appointment and instruction of an adviser brought in to manage a conflict should, where possible, be handled by trustees who are not themselves affected by the conflict." },
+
+  // Section 6 — Consequences (4 additional = 8 total)
+  { sec: 5, scenario: null,
+    q: "A trustee who genuinely believed they were acting in good faith when making a conflicted decision is completely protected from personal liability.",
+    answer: false,
+    explain: "False. Good faith is a factor that courts may take into account, and equity does allow some relief for honest trustees in certain circumstances. However, good faith alone does not provide complete protection. A trustee who acts in breach of their fiduciary duty — even honestly — may still face liability, particularly where the conflict was not disclosed." },
+  { sec: 5, scenario: "Following an investigation, TPR concludes that a trustee board failed to have an adequate conflicts of interest policy in place for several years, though no direct financial loss to the scheme has been identified.",
+    q: "The absence of a documented conflicts policy is itself a governance failure that TPR can take action on, even without evidence of financial loss.",
+    answer: true,
+    explain: "True. TPR's supervisory approach focuses on governance quality, not just financial outcomes. The failure to maintain an adequate ESOG — including a documented conflicts policy — is itself a regulatory failing that can attract TPR intervention through improvement notices or other supervisory action, regardless of whether any specific decision was compromised." },
+  { sec: 5, scenario: null,
+    q: "A trustee who is disqualified by TPR from acting as a trustee of one scheme is automatically prohibited from acting as a trustee of any other occupational pension scheme.",
+    answer: true,
+    explain: "True. Under the Pensions Act 1995 (as amended), a prohibition order made by TPR applies generally — it prevents the individual from acting as a trustee of any occupational pension scheme, not just the scheme in relation to which the order was made." },
+  { sec: 5, scenario: null,
+    q: "Legal costs incurred by trustees in defending a claim arising from an undisclosed conflict of interest will always be recoverable from the scheme.",
+    answer: false,
+    explain: "False. Trustees who are in breach of their fiduciary duty — including through failure to manage conflicts — are not automatically entitled to be indemnified from scheme assets for their legal costs. Trustee indemnity insurance may provide some cover, but this will depend on policy terms. A trustee acting in deliberate or reckless breach is likely to find both scheme indemnity and insurance unavailable." }
+
+];
+
+// ══════════════════════════════════════════════
+//  STATE
+// ══════════════════════════════════════════════
+let state = {
+  name: '',
+  currentQ: 0,
+  answers: [],
+  sectionIntroShown: new Set(),
+  correctCount: 0,
+  startTime: null
+};
+
+function updateProgress() {
+  const pct = Math.round((state.currentQ / state.shuffledQuestions.length) * 100);
+  document.getElementById('progress-bar').style.width = pct + '%';
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function shuffleArray(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function buildShuffledQuestions() {
+  // Group by section, shuffle within each section, then reassemble in section order
+  const bySec = sections.map((_, i) =>
+    shuffleArray(questions.map((q, idx) => ({...q, origIdx: idx})).filter(q => q.sec === i))
+  );
+  return bySec.flat();
+}
+
+function startTraining() {
+  const name = document.getElementById('trustee-name').value.trim();
+  if (!name) { alert('Please enter your name to begin.'); return; }
+  state.name = name;
+  state.currentQ = 0;
+  state.answers = [];
+  state.correctCount = 0;
+  state.sectionIntroShown = new Set();
+  state.startTime = new Date();
+  state.shuffledQuestions = buildShuffledQuestions();
+  maybeShowSectionIntro();
+}
+
+function maybeShowSectionIntro() {
+  const q = state.shuffledQuestions[state.currentQ];
+  if (!state.sectionIntroShown.has(q.sec)) {
+    state.sectionIntroShown.add(q.sec);
+    showSectionIntro(q.sec);
+  } else {
+    showQuestion();
+  }
+}
+
+function showSectionIntro(secIdx) {
+  const sec = sections[secIdx];
+  document.getElementById('sec-num-label').textContent = `Section ${secIdx + 1} of ${sections.length}`;
+  document.getElementById('sec-title').textContent = sec.title;
+  document.getElementById('sec-desc').textContent = sec.desc;
+  document.getElementById('sec-briefing').innerHTML = sec.briefing;
+  updateProgress();
+  showScreen('screen-section');
+}
+
+function startSection() {
+  showQuestion();
+}
+
+function showQuestion() {
+  const q = state.shuffledQuestions[state.currentQ];
+  const secName = sections[q.sec].title;
+  const qNum = state.currentQ + 1;
+
+  document.getElementById('q-section-name').textContent = `Section ${q.sec + 1}: ${secName}`;
+  document.getElementById('q-counter').textContent = `Question ${qNum} of ${state.shuffledQuestions.length}`;
+
+  if (q.scenario) {
+    document.getElementById('scenario-label').style.display = 'inline-block';
+    document.getElementById('q-scenario').style.display = 'block';
+    document.getElementById('q-scenario').textContent = q.scenario;
+  } else {
+    document.getElementById('scenario-label').style.display = 'none';
+    document.getElementById('q-scenario').style.display = 'none';
+  }
+
+  document.getElementById('q-text').textContent = q.q;
+  document.getElementById('q-feedback').className = 'feedback-overlay';
+  document.getElementById('q-feedback').innerHTML = '';
+  document.getElementById('next-btn-wrap').style.display = 'none';
+
+  const btns = document.querySelectorAll('.answer-btn');
+  btns.forEach(b => { b.disabled = false; b.style.opacity = '1'; });
+
+  updateProgress();
+  showScreen('screen-question');
+}
+
+function answer(userAnswer) {
+  const q = state.shuffledQuestions[state.currentQ];
+  const correct = (userAnswer === q.answer);
+  state.answers.push({ qIdx: state.currentQ, userAnswer, correct });
+  if (correct) state.correctCount++;
+
+  const fb = document.getElementById('q-feedback');
+  if (correct) {
+    fb.className = 'feedback-overlay correct';
+    fb.innerHTML = `<div class="fb-title">✔ Correct</div><div class="fb-explain">${q.explain}</div>`;
+  } else {
+    const correctWord = q.answer ? 'True' : 'False';
+    fb.className = 'feedback-overlay incorrect';
+    fb.innerHTML = `<div class="fb-title">✘ Incorrect — the answer is <em>${correctWord}</em></div><div class="fb-explain">${q.explain}</div>`;
+  }
+
+  document.querySelectorAll('.answer-btn').forEach(b => { b.disabled = true; b.style.opacity = '0.6'; });
+
+  const nw = document.getElementById('next-btn-wrap');
+  nw.style.display = 'block';
+  const isLast = state.currentQ === state.shuffledQuestions.length - 1;
+  document.getElementById('next-btn').textContent = isLast ? 'See Results ›' : 'Next Question ›';
+}
+
+function nextQuestion() {
+  state.currentQ++;
+  if (state.currentQ >= state.shuffledQuestions.length) {
+    showResults();
+  } else {
+    maybeShowSectionIntro();
+  }
+}
+
+function showResults() {
+  const total = state.shuffledQuestions.length;
+  const correct = state.correctCount;
+  const pct = Math.round((correct / total) * 100);
+  const pass = pct >= 70;
+
+  document.getElementById('score-pct').textContent = pct + '%';
+  document.getElementById('results-headline').textContent = pass ? '🎉 Module Passed' : 'Module Not Yet Passed';
+  document.getElementById('results-subline').textContent =
+    `You answered ${correct} out of ${total} questions correctly.`;
+
+  const banner = document.getElementById('pass-fail-banner');
+  if (pass) {
+    banner.innerHTML = `<div class="pass-banner">Congratulations — you have achieved the required standard (70%) for this training module. Your certificate is available below.</div>`;
+  } else {
+    banner.innerHTML = `<div class="fail-banner">You have not yet reached the pass mark of 70%. Please review the feedback on incorrect answers and retake the module.</div>`;
+  }
+
+  // Section breakdown
+  const secScores = sections.map((_, i) => ({ correct: 0, total: 0 }));
+  state.answers.forEach(a => {
+    const q = state.shuffledQuestions[a.qIdx];
+    secScores[q.sec].total++;
+    if (a.correct) secScores[q.sec].correct++;
+  });
+  const tbody = document.getElementById('results-table-body');
+  tbody.innerHTML = secScores.map((s, i) =>
+    `<tr><td>${sections[i].title}</td><td>${s.correct}/${s.total} ${s.correct === s.total ? '<span class="tick">✔</span>' : ''}</td></tr>`
+  ).join('');
+
+  // Incorrect review
+  const wrongs = state.answers.filter(a => !a.correct);
+  let reviewHtml = '';
+  if (wrongs.length > 0) {
+    reviewHtml = `<div style="background:white;border:1px solid var(--light-border);border-radius:8px;overflow:hidden;margin-bottom:28px">
+      <div style="background:var(--navy);color:white;padding:12px 16px;font-family:Helvetica,Arial,sans-serif;font-weight:700">Review: Questions to revisit</div>
+      <div style="padding:16px 20px">`;
+    wrongs.forEach(a => {
+      const q = state.shuffledQuestions[a.qIdx];
+      reviewHtml += `<div style="border-bottom:1px solid var(--light-border);padding:14px 0;font-size:0.9rem">
+        <div style="font-weight:600;color:var(--navy);margin-bottom:6px">${q.q}</div>
+        <div style="color:var(--danger);margin-bottom:4px"><strong>Your answer:</strong> ${a.userAnswer ? 'True' : 'False'} — <strong>Correct answer:</strong> ${q.answer ? 'True' : 'False'}</div>
+        <div style="color:var(--mid)">${q.explain}</div>
+      </div>`;
+    });
+    reviewHtml += `</div></div>`;
+  }
+  document.getElementById('incorrect-review').innerHTML = reviewHtml;
+
+  document.getElementById('cert-btn').style.display = pass ? 'inline-flex' : 'none';
+
+  document.getElementById('progress-bar').style.width = '100%';
+  showScreen('screen-results');
+}
+
+function showCert() {
+  const now = new Date();
+  const dateStr = now.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+  const pct = Math.round((state.correctCount / state.shuffledQuestions.length) * 100);
+  const ref = `TKU-COI-${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}-${Math.random().toString(36).substr(2,6).toUpperCase()}`;
+
+  document.getElementById('cert-name-display').textContent = state.name;
+  document.getElementById('cert-score-line').textContent =
+    `Score: ${state.correctCount} out of ${state.shuffledQuestions.length} (${pct}%) — Passed`;
+  document.getElementById('cert-date').textContent = dateStr;
+  document.getElementById('cert-ref').textContent = `Certificate reference: ${ref}`;
+
+  showScreen('screen-cert');
+}
+
+function printCert() {
+  window.print();
+}
+
+function retryTraining() {
+  document.getElementById('trustee-name').value = state.name;
+  state.currentQ = 0;
+  state.answers = [];
+  state.correctCount = 0;
+  state.sectionIntroShown = new Set();
+  state.startTime = new Date();
+  state.shuffledQuestions = buildShuffledQuestions();
+  updateProgress();
+  maybeShowSectionIntro();
+}
+</script>
+</body>
+</html>
