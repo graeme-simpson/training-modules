@@ -1169,10 +1169,13 @@ function shuffleArray(arr) {
 }
 
 function buildShuffledQuestions() {
-  // Group by section, shuffle within each section, then reassemble in section order
-  const bySec = sections.map((_, i) =>
-    shuffleArray(questions.map((q, idx) => ({...q, origIdx: idx})).filter(q => q.sec === i))
-  );
+  // How many to draw from each section (total = 35)
+  const drawCounts = [5, 5, 7, 5, 8, 5];
+  // Group by section, shuffle, then take the required number from each
+  const bySec = sections.map((_, i) => {
+    const pool = shuffleArray(questions.filter(q => q.sec === i));
+    return pool.slice(0, drawCounts[i]);
+  });
   return bySec.flat();
 }
 
